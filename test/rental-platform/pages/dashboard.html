@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="assets-listing.html" class="nav-link">Browse Assets</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#" class="nav-link active">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <div class="user-menu">
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                    <span>Jane Doe</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar slide-in-left">
+            <div class="sidebar-user">
+                <img src="https://via.placeholder.com/80" alt="User" class="user-avatar-large">
+                <h3>Jane Doe</h3>
+                <p class="user-role">Renter & Owner</p>
+                <div class="trust-score">
+                    <i class="fas fa-star"></i>
+                    <span>4.9 / 5.0</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#overview" class="sidebar-link active">
+                    <i class="fas fa-chart-pie"></i> Overview
+                </a>
+                <a href="my-bookings.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i> My Bookings
+                </a>
+                <a href="#assets" class="sidebar-link">
+                    <i class="fas fa-cube"></i> My Assets
+                </a>
+                <a href="#activity" class="sidebar-link">
+                    <i class="fas fa-history"></i> Activity Log
+                </a>
+                <a href="#deposits" class="sidebar-link">
+                    <i class="fas fa-lock"></i> Deposits & Escrow
+                </a>
+                <a href="#reviews" class="sidebar-link">
+                    <i class="fas fa-star"></i> Reviews
+                </a>
+                <a href="#analytics" class="sidebar-link">
+                    <i class="fas fa-chart-line"></i> Analytics
+                </a>
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fas fa-user-circle"></i> Profile
+                </a>
+            </nav>
+
+            <button class="btn btn-secondary btn-block">Logout</button>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1>Dashboard Overview</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card slide-in-left">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="active-bookings-count">0</h3>
+                            <p>Active Bookings</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card slide-in-left" style="animation-delay: 0.1s;">
+                        <div class="stat-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="listed-assets-count">12</h3>
+                            <p>Listed Assets</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card slide-in-left" style="animation-delay: 0.2s;">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="earnings-this-month">$0</h3>
+                            <p>Earnings This Month</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card slide-in-left" style="animation-delay: 0.3s;">
+                        <div class="stat-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="deposits-held">$0</h3>
+                            <p>Deposits Held</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Recent Bookings -->
+                    <div class="dashboard-card fade-in-up">
+                        <h3>Recent Bookings</h3>
+                        <div class="booking-list" id="recent-bookings-list">
+                            <div class="booking-item empty-state">
+                                <div class="booking-info">
+                                    <h4>No recent bookings yet</h4>
+                                    <p>Complete a booking to see it appear here.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#bookings" class="link-more">View All Bookings →</a>
+                    </div>
+
+                    <!-- Your Assets -->
+                    <div class="dashboard-card fade-in-up" style="animation-delay: 0.1s;">
+                        <h3>Your Top Assets</h3>
+                        <div class="assets-list">
+                            <div class="asset-item">
+                                <div class="asset-thumb car-image-small"></div>
+                                <div class="asset-info">
+                                    <h4>2024 Tesla Model 3</h4>
+                                    <p class="asset-rating">
+                                        <i class="fas fa-star"></i> 4.9/5 (245 reviews)
+                                    </p>
+                                    <p class="asset-util">85% Utilization</p>
+                                </div>
+                                <span class="earnings">$2,150/mo</span>
+                            </div>
+
+                            <div class="asset-item">
+                                <div class="asset-thumb bike-image-small"></div>
+                                <div class="asset-info">
+                                    <h4>Mountain Bike Pro</h4>
+                                    <p class="asset-rating">
+                                        <i class="fas fa-star"></i> 4.8/5 (89 reviews)
+                                    </p>
+                                    <p class="asset-util">72% Utilization</p>
+                                </div>
+                                <span class="earnings">$450/mo</span>
+                            </div>
+
+                            <div class="asset-item">
+                                <div class="asset-thumb apartment-image-small"></div>
+                                <div class="asset-info">
+                                    <h4>Modern 2BR Apartment</h4>
+                                    <p class="asset-rating">
+                                        <i class="fas fa-star"></i> 5.0/5 (512 reviews)
+                                    </p>
+                                    <p class="asset-util">90% Utilization</p>
+                                </div>
+                                <span class="earnings">$4,200/mo</span>
+                            </div>
+                        </div>
+                        <a href="#assets" class="link-more">Manage All Assets →</a>
+                    </div>
+                </div>
+
+                <!-- Activity Log -->
+                <div class="dashboard-card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-log">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Booking Confirmed</h4>
+                                <p>Tesla Model 3 booked by Michael Chen (June 25 - July 2)</p>
+                                <span class="time">2 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Payment Received</h4>
+                                <p>$950 from Mountain Bike rental (Sarah Johnson)</p>
+                                <span class="time">5 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Review Received</h4>
+                                <p>5-star review from David Lee: "Excellent service and clean asset!"</p>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Condition Report Signed</h4>
+                                <p>Post-rental inspection completed for Mountain Bike</p>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#activity" class="link-more">View Full Activity Log →</a>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookings" class="dashboard-section">
+                <h1>My Bookings</h1>
+                <div class="booking-search-bar">
+                    <input id="booking-search-input" type="search" placeholder="Search bookings by asset, renter, status or date...">
+                </div>
+                <div class="bookings-container"></div>
+            </section>
+
+            <!-- Deposits Section -->
+            <section id="deposits" class="dashboard-section">
+                <h1>Deposits & Escrow Management</h1>
+                <div class="deposits-grid">
+                    <div class="deposit-card fade-in-up">
+                        <h3>Active Deposits Held</h3>
+                        <div class="deposit-amount">$1,200.00</div>
+                        <div class="deposit-list">
+                            <div class="deposit-item">
+                                <span>Tesla Model 3 (Michael Chen)</span>
+                                <span class="amount">$500.00</span>
+                            </div>
+                            <div class="deposit-item">
+                                <span>Mountain Bike (Sarah Johnson)</span>
+                                <span class="amount">$150.00</span>
+                            </div>
+                            <div class="deposit-item">
+                                <span>2BR Apartment (David Lee)</span>
+                                <span class="amount">$550.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deposit-card fade-in-up" style="animation-delay: 0.1s;">
+                        <h3>Deposit Status</h3>
+                        <div class="status-list">
+                            <div class="status-item">
+                                <h4>Released (Last 30 days)</h4>
+                                <p class="amount">$2,100.00</p>
+                                <p class="count">6 deposits released</p>
+                            </div>
+                            <div class="status-item">
+                                <h4>Deducted</h4>
+                                <p class="amount">$250.00</p>
+                                <p class="count">Damage: $200 | Late fees: $50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card fade-in-up" style="animation-delay: 0.2s;">
+                    <h3>Deposit Ledger</h3>
+                    <table class="ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Renter</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tesla Model 3</td>
+                                <td>Michael Chen</td>
+                                <td>$500.00</td>
+                                <td><span class="badge status-pending">In Escrow</span></td>
+                                <td><button class="btn btn-link">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mountain Bike</td>
+                                <td>Sarah Johnson</td>
+                                <td>$150.00</td>
+                                <td><span class="badge status-confirmed">Released</span></td>
+                                <td><button class="btn btn-link">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>Power Tool Set</td>
+                                <td>Tom Wilson</td>
+                                <td>$200.00</td>
+                                <td><span class="badge status-warning">Partial Deduction</span></td>
+                                <td><button class="btn btn-link">View Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section id="reviews" class="dashboard-section">
+                <h1>Reviews & Ratings</h1>
+                <div class="reviews-grid">
+                    <div class="review-card fade-in-up">
+                        <h3>Your Trust Score</h3>
+                        <div class="trust-display">
+                            <div class="trust-circle">
+                                <span class="score">4.9</span>
+                                <span class="max">/5.0</span>
+                            </div>
+                            <div class="trust-stats">
+                                <p><strong>Total Reviews:</strong> 47</p>
+                                <p><strong>5 Stars:</strong> 45 reviews</p>
+                                <p><strong>4 Stars:</strong> 2 reviews</p>
+                                <p><strong>Trust Badge:</strong> Verified</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card fade-in-up" style="animation-delay: 0.1s;">
+                        <h3>Recent Reviews</h3>
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <h4>David Lee</h4>
+                                        <p class="asset">Rented: 2BR Apartment</p>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="review-text">"Excellent service and clean asset! Jane was very responsive and helpful throughout the rental period."</p>
+                                <p class="review-date">2 days ago</p>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <h4>Sarah Johnson</h4>
+                                        <p class="asset">Rented: Mountain Bike Pro</p>
+                                    </div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="review-text">"Great bike in excellent condition. Would rent again!"</p>
+                                <p class="review-date">5 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Renters</h4>
+                <ul>
+                    <li><a href="#">Browse Assets</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Asset</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RentalHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

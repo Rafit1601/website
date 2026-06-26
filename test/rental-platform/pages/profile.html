@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - RentalHub</title>
+    <link rel="stylesheet" href="../css/style3.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/auth.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="assets-listing.html" class="nav-link">Browse Assets</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile-header">
+    <div class="profile-card">
+        <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-avatar">
+
+        <h2 id="profile-full-name">Loading...</h2>
+        <p id="profile-email">Loading...</p>
+
+        <div class="profile-buttons">
+            <button id="edit-profile" class="btn btn-primary">Edit Profile</button>
+            <button id="go-assets-listing" class="btn btn-secondary">Back to Orders</button>
+        </div>
+    </div>
+</section>
+
+<section class="profile-tabs">
+
+    <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showTab('info')">
+            User Information
+        </button>
+
+        <button class="tab-btn" onclick="showTab('booking')">
+            My Bookings
+        </button>
+    </div>
+
+    <!-- User Info -->
+    <div id="info" class="tab-content active">
+        <div class="dashboard-card">
+            <h3>Account Information</h3>
+
+            <div class="info-grid">
+                <div>
+                    <label>Full Name</label>
+                    <p id="user-name">Loading...</p>
+                </div>
+
+                <div>
+                    <label>Username</label>
+                    <p id="profile-username">Loading...</p>
+                </div>
+
+                <div>
+                    <label>Email</label>
+                    <p id="user-email">Loading...</p>
+                </div>
+
+                <div>
+                    <label>Role</label>
+                    <p id="profile-role">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Booking -->
+    <div id="booking" class="tab-content">
+        <div class="dashboard-card">
+
+            <h3>My Bookings</h3>
+
+            <table class="booking-table">
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Dates</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="profile-bookings-body">
+                </tbody>
+            </table>
+
+            <div id="no-bookings-message" class="empty-state" style="display:none; margin-top: 1rem;">
+                <p>No booking history found. Complete a booking to see it here.</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Renters</h4>
+                <ul>
+                    <li><a href="#">Browse Assets</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Asset</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RentalHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            tabs.forEach(tab => {
+                tab.classList.toggle('active', tab.id === tabId);
+            });
+
+            buttons.forEach(button => {
+                button.classList.toggle('active', button.getAttribute('onclick').includes(tabId));
+            });
+        }
+
+        function getStoredBookings() {
+            try {
+                const stored = localStorage.getItem('rhBookings');
+                return stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                console.error('Error reading bookings from storage:', e);
+                return [];
+            }
+        }
+
+        function formatDateDisplay(rawDate) {
+            const date = new Date(rawDate);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function renderProfileBookings(currentUser) {
+            const bookingsBody = document.getElementById('profile-bookings-body');
+            const noBookingsMessage = document.getElementById('no-bookings-message');
+            if (!bookingsBody || !noBookingsMessage) return;
+
+            const bookings = getStoredBookings().filter(booking => booking.username === currentUser.username);
+            bookingsBody.innerHTML = '';
+
+            if (bookings.length === 0) {
+                noBookingsMessage.style.display = 'block';
+                return;
+            }
+
+            noBookingsMessage.style.display = 'none';
+            bookings.forEach(booking => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${booking.assetName}</td>
+                    <td>${formatDateDisplay(booking.checkIn)} - ${formatDateDisplay(booking.checkOut)}</td>
+                    <td><span class="status ${booking.status.toLowerCase()}">${booking.status}</span></td>
+                    <td>${booking.total}</td>
+                `;
+                bookingsBody.appendChild(row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = window.requireAuth ? window.requireAuth() : null;
+            if (!currentUser) return;
+
+            document.getElementById('profile-full-name').textContent = currentUser.fullName || currentUser.username;
+            document.getElementById('profile-username').textContent = currentUser.username;
+            document.getElementById('user-name').textContent = currentUser.fullName || currentUser.username;
+            document.getElementById('user-email').textContent = currentUser.email;
+            document.getElementById('profile-email').textContent = currentUser.email;
+            document.getElementById('profile-role').textContent = currentUser.role || 'user';
+
+            document.getElementById('edit-profile').addEventListener('click', () => {
+                alert('Profile editing is not enabled in this demo at the moment.');
+            });
+
+            const assetsListingButton = document.getElementById('go-assets-listing');
+            if (assetsListingButton) {
+                assetsListingButton.addEventListener('click', () => {
+                    window.location.href = 'assets-listing.html';
+                });
+            }
+
+            if (window.location.hash === '#booking') {
+                showTab('booking');
+            }
+
+            renderProfileBookings(currentUser);
+        });
+    </script>
+</body>
+</html>

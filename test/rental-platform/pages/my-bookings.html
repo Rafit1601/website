@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="assets-listing.html" class="nav-link">Browse Assets</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="assets-listing.html" class="nav-link">asset</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-container">
+            <main class="dashboard-main">
+                <section class="dashboard-section active">
+                    <h1>My Bookings</h1>
+                    <div class="booking-search-bar">
+                        <input id="booking-search-input" type="search" placeholder="Search bookings by asset, renter, status or date...">
+                    </div>
+                    <div class="bookings-container"></div>
+                    <div class="dashboard-actions" style="margin-top: 2rem;">
+                        <a href="dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Renters</h4>
+                <ul>
+                    <li><a href="#">Browse Assets</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Asset</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RentalHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const bookingsContainer = document.querySelector('.bookings-container');
+        const bookingSearchInput = document.getElementById('booking-search-input');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = window.requireAuth ? window.requireAuth() : null;
+            if (!currentUser) return;
+
+            renderBookings(currentUser);
+            if (bookingSearchInput) {
+                bookingSearchInput.addEventListener('input', () => {
+                    renderBookings(currentUser, bookingSearchInput.value);
+                });
+            }
+        });
+
+        function getStoredBookings() {
+            try {
+                const stored = localStorage.getItem('rhBookings');
+                return stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                console.error('Error reading bookings from storage:', e);
+                return [];
+            }
+        }
+
+        function formatDateDisplay(rawDate) {
+            const date = new Date(rawDate);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+        }
+
+        function renderBookings(currentUser, query = '') {
+            if (!bookingsContainer) return;
+
+            const persisted = getStoredBookings();
+            const userBookings = persisted.filter(booking => booking.username === currentUser.username);
+            const normalizedQuery = (query || '').trim().toLowerCase();
+
+            const filtered = normalizedQuery
+                ? userBookings.filter(booking => {
+                      const text = [booking.assetName, booking.owner, booking.status, booking.checkIn, booking.checkOut, booking.total]
+                          .join(' ')
+                          .toLowerCase();
+                      return text.includes(normalizedQuery);
+                  })
+                : userBookings;
+
+            bookingsContainer.innerHTML = '';
+            if (filtered.length === 0) {
+                bookingsContainer.innerHTML = `
+                    <div class="booking-card fade-in-up">
+                        <div class="booking-header">
+                            <h3>No bookings found</h3>
+                        </div>
+                        <div class="booking-details">
+                            <p>Complete a booking on the booking page to see your reservation here.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach((booking, index) => {
+                const card = document.createElement('div');
+                card.className = 'booking-card fade-in-up';
+                card.style.animationDelay = `${index * 0.05}s`;
+                card.innerHTML = `
+                    <div class="booking-header">
+                        <h3>${booking.assetName}</h3>
+                        <span class="badge status-${booking.status.toLowerCase().replace(/\s+/g, '-')}">${booking.status}</span>
+                    </div>
+                    <div class="booking-details">
+                        <p><strong>Dates:</strong> ${formatDateDisplay(booking.checkIn)} – ${formatDateDisplay(booking.checkOut)} (${booking.days} days)</p>
+                        <p><strong>Owner:</strong> ${booking.owner}</p>
+                        <p><strong>Total:</strong> ${booking.total}</p>
+                        <p><strong>Deposit:</strong> ${booking.damageDeposit}</p>
+                    </div>
+                `;
+                bookingsContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

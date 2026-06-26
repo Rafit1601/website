@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="assets-listing.html" class="nav-link">Browse Assets</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="booking-wrapper">
+            <!-- Left Side: Asset Details & Booking Form -->
+            <div class="booking-main fade-in-left">
+                <div class="booking-progress">
+                    <div class="progress-step active">
+                        <div class="progress-number">1</div>
+                        <div class="progress-label">Dates</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="progress-number">2</div>
+                        <div class="progress-label">Details</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="progress-number">3</div>
+                        <div class="progress-label">Payment</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="progress-number">4</div>
+                        <div class="progress-label">Confirm</div>
+                    </div>
+                </div>
+
+                <!-- Asset Info -->
+                <div class="booking-asset">
+                    <h2>2024 Tesla Model 3</h2>
+                    <div class="asset-card-booking">
+                        <div class="asset-image-large car-image"></div>
+                        <div class="asset-details-booking">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(245 reviews)</span>
+                            </div>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> San Francisco, CA
+                            </p>
+                            <div class="asset-owner">
+                                <div class="owner-avatar"></div>
+                                <div>
+                                    <h4>John Martinez</h4>
+                                    <span class="verified-badge">
+                                        <i class="fas fa-check-circle"></i> Verified Owner
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <form class="booking-form">
+                    <div class="form-section">
+                        <h3>Select Your Dates</h3>
+                        <div class="date-picker-group">
+                            <div class="form-group">
+                                <label for="check-in-date">Check-In Date</label>
+                                <input type="date" id="check-in-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="check-out-date">Check-Out Date</label>
+                                <input type="date" id="check-out-date" required>
+                            </div>
+                        </div>
+                        <div class="rental-info">
+                            <p><strong>Rental Duration:</strong> <span id="duration">-</span> days</p>
+                            <p><strong>Daily Rate:</strong> <span id="daily-rate">$95</span></p>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Renter Details</h3>
+                        <div class="form-group">
+                            <label for="renter-name">Full Name</label>
+                            <input type="text" id="renter-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="renter-email">Email Address</label>
+                            <input type="email" id="renter-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="renter-phone">Phone Number</label>
+                            <input type="tel" id="renter-phone" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="renter-license">Driver's License Number</label>
+                            <input type="text" id="renter-license" placeholder="ABC123456" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Rental Terms</h3>
+                        <div class="terms-check">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                I agree to the rental terms and conditions
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                I understand the damage deposit policy
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-block">Confirm Booking</button>
+                </form>
+            </div>
+
+            <!-- Right Side: Price Breakdown -->
+            <aside class="booking-summary fade-in-right">
+                <div class="price-breakdown">
+                    <h3>Price Details</h3>
+                    
+                    <div class="price-row">
+                        <span class="label">Daily Rate</span>
+                        <span class="value">$95.00</span>
+                    </div>
+                    
+                    <div class="price-row">
+                        <span class="label">Number of Days</span>
+                        <span class="value" id="summary-days">-</span>
+                    </div>
+                    
+                    <div class="price-row">
+                        <span class="label">Rental Subtotal</span>
+                        <span class="value" id="subtotal">$0.00</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="price-row">
+                        <span class="label">Service Fee (10%)</span>
+                        <span class="value" id="service-fee">$0.00</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span class="label">Taxes (8%)</span>
+                        <span class="value" id="taxes">$0.00</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="price-row total">
+                        <span class="label">Total Due Today</span>
+                        <span class="value" id="total">$0.00</span>
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <p>The damage deposit will be held in escrow and refunded within 5 business days of return, minus any damage deductions.</p>
+                    </div>
+
+                    <div class="info-box warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Late returns incur penalty fees of $50 per hour or part thereof.</p>
+                    </div>
+
+                    <h4>What's Included</h4>
+                    <ul class="included-list">
+                        <li><i class="fas fa-check"></i> Full Tank of Gas</li>
+                        <li><i class="fas fa-check"></i> Insurance Coverage</li>
+                        <li><i class="fas fa-check"></i> 24/7 Roadside Assistance</li>
+                        <li><i class="fas fa-check"></i> Free Cleaning Kit</li>
+                    </ul>
+
+                    <h4>Cancellation Policy</h4>
+                    <div class="policy-box">
+                        <p><strong>Free Cancellation:</strong> Within 48 hours of booking</p>
+                        <p><strong>50% Refund:</strong> 48 hours to 7 days before rental</p>
+                        <p><strong>No Refund:</strong> Less than 7 days before rental</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Renters</h4>
+                <ul>
+                    <li><a href="#">Browse Assets</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Asset</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RentalHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/booking.js"></script>
+</body>
+</html>

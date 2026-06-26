@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/login-style2.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="assets-listing.html" class="nav-link">Browse Assets</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+
+    <main class="auth-page style2">
+        <div class="auth-card style2">
+            <div class="auth-tabs">
+                <button id="tab-login" class="auth-tab active">Login</button>
+                <button id="tab-register" class="auth-tab">Register</button>
+            </div>
+
+            <div id="login-panel" class="auth-panel">
+                <h2>Welcome to RentalHub</h2>
+                <p>sign in to your account .</p>
+                <form id="login-form" class="auth-form">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-block">Login</button>
+                </form>
+            </div>
+
+            <div id="register-panel" class="auth-panel" style="display:none;">
+                <h2>Create Account</h2>
+                <p>Register to book assets and view your booking history.</p>
+                <form id="register-form" class="auth-form">
+                    <label for="register-fullname">Full Name</label>
+                    <input type="text" id="register-fullname" required>
+
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" required>
+
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" required>
+
+                    <button type="submit" class="btn btn-primary btn-large btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

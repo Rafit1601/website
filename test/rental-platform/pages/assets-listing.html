@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Assets - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/assets-listing.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i> RentalHub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">Browse Assets</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-full">
+        <div class="listing-wrapper">
+            <!-- Sidebar Filters -->
+            
+                
+            <!-- Main Listings -->
+            <main class="listings-main">
+                <div class="assets-grid">
+                    <!-- Asset Card 1 -->
+                    <div class="asset-card fade-in-up">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/3.jpg);"></div>
+                            <span class="asset-badge">Popular</span>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(245 reviews)</span>
+                            </div>
+                            <h3>2024 Tesla Model 3</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Siem Reap, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge excellent">Excellent</span>
+                            </div>
+                            <p class="asset-description">Luxury electric car, fully charged, clean interior.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-users"></i> 5 seats</span>
+                                <span><i class="fas fa-tachometer-alt"></i> Auto</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$95</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset Card 2 -->
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/2.jpg);"></div>
+                            <span class="asset-badge new">New</span>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(89 reviews)</span>
+                            </div>
+                            <h3>Mountain Bike Pro</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Phnom Penh, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge excellent">Excellent</span>
+                            </div>
+                            <p class="asset-description">High-end mountain bike with full suspension and disc brakes.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-circle"></i> 27.5" Wheels</span>
+                                <span><i class="fas fa-tachometer-alt"></i> 21 Speed</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$25</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset Card 3 -->
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/1.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(156 reviews)</span>
+                            </div>
+                            <h3>Professional Camera Kit</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Oakland, CA
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge good">Good</span>
+                            </div>
+                            <p class="asset-description">Canon EOS R5 with lenses and tripod included.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-image"></i> 45MP</span>
+                                <span><i class="fas fa-video"></i> 4K Video</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$150</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset Card 4 -->
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/4.jpg);"></div>
+                            <span class="asset-badge popular">Popular</span>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(512 reviews)</span>
+                            </div>
+                            <h3>Modern 2BR Apartment</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Kampot, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge excellent">Excellent</span>
+                            </div>
+                            <p class="asset-description">Spacious apartment with city views and modern amenities.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-door-open"></i> 2 Bedrooms</span>
+                                <span><i class="fas fa-bath"></i> 1.5 Baths</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$220</span>
+                                    <span class="period">/night</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset Card 5 -->
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/5.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(78 reviews)</span>
+                            </div>
+                            <h3>DJI Pro Drone</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Berkeley, CA
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge excellent">Excellent</span>
+                            </div>
+                            <p class="asset-description">4K aerial drone with extended battery and carrying case.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-video"></i> 4K Camera</span>
+                                <span><i class="fas fa-clock"></i> 45min Flight</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$85</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset Card 6 -->
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/6.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(203 reviews)</span>
+                            </div>
+                            <h3>Power Tool Set</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Khos Kong, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge good">Good</span>
+                            </div>
+                            <p class="asset-description">Complete DeWalt tool collection with drill, saw, and more.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-tools"></i> 20 Tools</span>
+                                <span><i class="fas fa-battery-full"></i> Batteries Included</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$40</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/6.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(203 reviews)</span>
+                            </div>
+                            <h3>Power Tool Set</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Khos Kong, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge good">Good</span>
+                            </div>
+                            <p class="asset-description">Complete DeWalt tool collection with drill, saw, and more.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-tools"></i> 20 Tools</span>
+                                <span><i class="fas fa-battery-full"></i> Batteries Included</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$40</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/6.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(203 reviews)</span>
+                            </div>
+                            <h3>Power Tool Set</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Khos Kong, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge good">Good</span>
+                            </div>
+                            <p class="asset-description">Complete DeWalt tool collection with drill, saw, and more.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-tools"></i> 20 Tools</span>
+                                <span><i class="fas fa-battery-full"></i> Batteries Included</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$40</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="asset-card fade-in-up" style="animation-delay: 0.5s;">
+                        <div class="asset-image-wrapper">
+                            <div class="asset-image" style="background-image: url(../image/6.jpg);"></div>
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="asset-content">
+                            <div class="asset-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(203 reviews)</span>
+                            </div>
+                            <h3>Power Tool Set</h3>
+                            <p class="asset-location">
+                                <i class="fas fa-map-marker-alt"></i> Khos Kong, Cambodia
+                            </p>
+                            <div class="asset-condition">
+                                <span class="condition-badge good">Good</span>
+                            </div>
+                            <p class="asset-description">Complete DeWalt tool collection with drill, saw, and more.</p>
+                            <div class="asset-features">
+                                <span><i class="fas fa-tools"></i> 20 Tools</span>
+                                <span><i class="fas fa-battery-full"></i> Batteries Included</span>
+                            </div>
+                            <div class="asset-footer">
+                                <div class="asset-price">
+                                    <span class="price">$40</span>
+                                    <span class="period">/day</span>
+                                </div>
+                                <a href="booking.html" class="btn btn-primary btn-small">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> 
+
+                <!-- Asset Grid -->
+                
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn-page">&lt;</button>
+                    <button class="btn-page active">1</button>
+                    <button class="btn-page">2</button>
+                    <button class="btn-page">3</button>
+                    <button class="btn-page">4</button>
+                    <button class="btn-page">&gt;</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Renters</h4>
+                <ul>
+                    <li><a href="#">Browse Assets</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Asset</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RentalHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

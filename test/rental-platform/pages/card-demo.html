@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Components - RentalHub</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .demo-section {
+            padding: 3rem 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .demo-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .demo-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.8rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        body {
+            background: var(--light-bg);
+        }
+
+        .container-demo {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Card Component Library</h1>
+        <p>Reusable card styles for your rental platform</p>
+    </header>
+
+    <div class="container-demo">
+        <!-- Base Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Base Card Variants</h2>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Default Card</h3>
+                        <p class="card-description">Standard card with subtle shadow and border. Perfect for general content.</p>
+                    </div>
+                </div>
+
+                <div class="card elevated">
+                    <div class="card-body">
+                        <h3 class="card-title">Elevated Card</h3>
+                        <p class="card-description">Prominent shadow for emphasis. Great for featured content.</p>
+                    </div>
+                </div>
+
+                <div class="card flat">
+                    <div class="card-body">
+                        <h3 class="card-title">Flat Card</h3>
+                        <p class="card-description">Minimal shadow, border-focused. Clean and simple style.</p>
+                    </div>
+                </div>
+
+                <div class="card outlined">
+                    <div class="card-body">
+                        <h3 class="card-title">Outlined Card</h3>
+                        <p class="card-description">Transparent background with clear border. Lightweight design.</p>
+                    </div>
+                </div>
+
+                <div class="card gradient">
+                    <div class="card-body">
+                        <h3 class="card-title">Gradient Card</h3>
+                        <p class="card-description">Subtle gradient background. Modern and subtle approach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Icon Cards</h2>
+            <p class="demo-subtitle">Centered layout with animated icon</p>
+
+            <div class="cards-grid">
+                <div class="card icon-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="card-title">Verified Renters</h3>
+                    <p class="card-description">All users undergo identity verification for peace of mind.</p>
+                </div>
+
+                <div class="card icon-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="card-title">Secure Payments</h3>
+                    <p class="card-description">End-to-end encrypted transactions and deposit protection.</p>
+                </div>
+
+                <div class="card icon-card">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="card-title">Trust Scores</h3>
+                    <p class="card-description">Build reputation with verified reviews and community badges.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Image Cards</h2>
+            <p class="demo-subtitle">Cards with hero images and hover zoom effect</p>
+
+            <div class="cards-grid">
+                <div class="card with-image content-card">
+                    <div class="card-image car-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Tesla Model 3</h3>
+                        <p class="card-subtitle">Premium Sedan • Phnom Penh, Cambodia</p>
+                        <p class="card-description">Luxury electric car, fully charged, clean interior. Perfect for city exploration.</p>
+                        <div class="card-meta">
+                            <span class="card-meta-item"><i class="fas fa-users"></i> 5 seats</span>
+                            <span class="card-meta-item"><i class="fas fa-tachometer-alt"></i> Auto</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-weight: 700; color: var(--primary-color); font-size: 1.3rem;">$95<span style="font-size: 0.8rem; color: var(--text-secondary);">/day</span></span>
+                        <button class="card-action-btn primary">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="card with-image content-card">
+                    <div class="card-image bike-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Mountain Bike Pro</h3>
+                        <p class="card-subtitle">Sports Bike • Phnom Penh, Cambodia</p>
+                        <p class="card-description">High-performance mountain bike with full suspension for trail adventures.</p>
+                        <div class="card-meta">
+                            <span class="card-meta-item"><i class="fas fa-star"></i> 4.8 (89 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-weight: 700; color: var(--primary-color); font-size: 1.3rem;">$25<span style="font-size: 0.8rem; color: var(--text-secondary);">/day</span></span>
+                        <button class="card-action-btn primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Status Cards</h2>
+            <p class="demo-subtitle">Cards with status badges</p>
+
+            <div class="cards-grid">
+                <div class="card status-card">
+                    <div class="card-header">
+                        <h3>Project Status</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">This card shows the current project status with a badge indicator.</p>
+                    </div>
+                    <span class="card-status active">Active</span>
+                </div>
+
+                <div class="card status-card">
+                    <div class="card-header">
+                        <h3>Booking Status</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">View your rental booking with pending confirmation.</p>
+                    </div>
+                    <span class="card-status pending">Pending</span>
+                </div>
+
+                <div class="card status-card">
+                    <div class="card-header">
+                        <h3>Maintenance Alert</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">This asset requires scheduled maintenance.</p>
+                    </div>
+                    <span class="card-status warning">Warning</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Testimonial Cards</h2>
+            <p class="demo-subtitle">Perfect for customer reviews and feedback</p>
+
+            <div class="cards-grid">
+                <div class="card testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Amazing platform! Found the perfect rental car within minutes. The verification process was smooth and trustworthy."</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JD</div>
+                        <div>
+                            <div class="testimonial-name">John Doe</div>
+                            <div class="testimonial-role">Verified Renter</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Great way to earn extra income from my equipment. The insurance and support team are excellent!"</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SJ</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Johnson</div>
+                            <div class="testimonial-role">Asset Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Cards -->
+        <section class="demo-section">
+            <h2 class="demo-title">Pricing Cards</h2>
+            <p class="demo-subtitle">Subscription and plan cards</p>
+
+            <div class="cards-grid">
+                <div class="card pricing">
+                    <h3 class="pricing-name">Starter</h3>
+                    <p class="pricing-description">Perfect for getting started</p>
+                    <div class="pricing-amount">$9</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature"><i class="fas fa-check"></i> 5 rental listings</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Basic analytics</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Email support</li>
+                        <li class="pricing-feature"><i class="fas fa-times"></i> Priority support</li>
+                    </ul>
+                    <button class="card-action-btn primary">Get Started</button>
+                </div>
+
+                <div class="card pricing">
+                    <span class="pricing-badge">Most Popular</span>
+                    <h3 class="pricing-name">Pro</h3>
+                    <p class="pricing-description">For serious renters</p>
+                    <div class="pricing-amount">$29</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Unlimited listings</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Priority support</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Custom branding</li>
+                    </ul>
+                    <button class="card-action-btn primary">Get Started</button>
+                </div>
+
+                <div class="card pricing">
+                    <h3 class="pricing-name">Enterprise</h3>
+                    <p class="pricing-description">Custom solutions</p>
+                    <div class="pricing-amount">Custom</div>
+                    <div class="pricing-period">contact sales</div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Dedicated manager</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> API access</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> White-label</li>
+                    </ul>
+                    <button class="card-action-btn secondary">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badge System -->
+        <section class="demo-section">
+            <h2 class="demo-title">Badge System</h2>
+            <p class="demo-subtitle">Color-coded badges for various purposes</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title" style="margin-bottom: 1.5rem;">Available Badge Colors</h3>
+                    <div class="card-badges">
+                        <span class="card-badge primary">Primary</span>
+                        <span class="card-badge success">Success</span>
+                        <span class="card-badge warning">Warning</span>
+                        <span class="card-badge danger">Danger</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Action Buttons</h2>
+            <p class="demo-subtitle">Built-in button styles for cards</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title" style="margin-bottom: 1.5rem;">Button Variants</h3>
+                    <div class="card-actions">
+                        <button class="card-action-btn primary">Primary Button</button>
+                        <button class="card-action-btn secondary">Secondary Button</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Usage Examples</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Basic Card Structure</h3>
+                    <div class="demo-code">&lt;div class="card"&gt;<br>
+&nbsp;&nbsp;&lt;div class="card-header"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Title&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="card-body"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Content goes here&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="card-footer"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Action&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-body">
+                    <h3 class="card-title">Card Variants</h3>
+                    <div class="demo-code">
+&lt;!-- Elevated --&gt;<br>
+&lt;div class="card elevated"&gt;...&lt;/div&gt;<br>
+<br>
+&lt;!-- Flat --&gt;<br>
+&lt;div class="card flat"&gt;...&lt;/div&gt;<br>
+<br>
+&lt;!-- Outlined --&gt;<br>
+&lt;div class="card outlined"&gt;...&lt;/div&gt;<br>
+<br>
+&lt;!-- Gradient --&gt;<br>
+&lt;div class="card gradient"&gt;...&lt;/div&gt;
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="background: var(--dark-bg); color: var(--white); padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2026 RentalHub Card Component Library. All rights reserved.</p>
+    </footer>
+</body>
+</html>
