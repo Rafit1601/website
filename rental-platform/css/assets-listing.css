@@ -1,0 +1,421 @@
+/* ==================== Assets Listing Page - New Styles ==================== */
+
+.container-full {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.listing-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* ==================== Main Content ==================== */
+.listings-main {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1.2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.listings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.listings-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.view-controls {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.view-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--border-color);
+    background: transparent;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.view-btn.active {
+    border-color: var(--primary-color);
+    color: var(--white);
+    background: var(--primary-color);
+}
+
+/* ==================== Assets Grid ==================== */
+.assets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ==================== Asset Card - New Design ==================== */
+.asset-card {
+    background: #ffffff;
+    border-radius: 1.3rem;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.asset-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Image Section */
+.asset-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    border-radius: 12px 12px 0 0;
+}
+
+.asset-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: transform .5s ease;
+}
+
+.asset-card:hover .asset-image {
+    transform: scale(1.05);
+}
+
+/* Image Type Gradients */
+.car-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bike-image {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.camera-image {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.apartment-image {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.drone-image {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.tool-image {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+/* Badges */
+.asset-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(99, 102, 241, 0.95);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.5px;
+}
+
+.asset-badge.new {
+    background: rgba(16, 185, 129, 0.95);
+}
+
+.asset-badge.popular {
+    background: rgba(236, 72, 153, 0.95);
+}
+
+/* Favorite Button */
+.btn-favorite {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+.btn-favorite:hover {
+    transform: scale(1.15) rotate(-10deg);
+    color: var(--danger-color);
+    background: var(--white);
+}
+
+/* Content Section */
+.asset-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rating */
+.asset-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.asset-rating i {
+    color: var(--warning-color);
+    font-size: 0.8rem;
+}
+
+.asset-rating span {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Title and Location */
+.asset-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.asset-location {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.asset-location i {
+    color: var(--primary-color);
+}
+
+/* Condition Badge */
+.asset-condition {
+    margin-bottom: 0.8rem;
+}
+
+.condition-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.condition-badge.excellent {
+    background: rgba(16, 185, 129, 0.15);
+    color: #047857;
+}
+
+.condition-badge.good {
+    background: rgba(59, 130, 246, 0.15);
+    color: #1e40af;
+}
+
+/* Description */
+.asset-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Features */
+.asset-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.asset-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(99, 102, 241, 0.05);
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+}
+
+.asset-features i {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.asset-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.asset-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.period {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.btn-small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+/* ==================== Pagination ==================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.btn-page {
+    padding: 0.6rem 0.9rem;
+    border: 2px solid var(--border-color);
+    background: var(--white);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 40px;
+    text-align: center;
+}
+
+.btn-page:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.btn-page.active {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1024px) {
+    .assets-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .listing-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .listings-main {
+        padding: 1.5rem;
+    }
+
+    .listings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .assets-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .asset-image-wrapper {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-full {
+        padding: 1rem;
+    }
+
+    .listings-main {
+        padding: 1rem;
+    }
+
+    .listings-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .assets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .asset-image-wrapper {
+        height: 180px;
+    }
+}

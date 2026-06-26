@@ -1,0 +1,207 @@
+/* Login Style 2: Animated premium login/register experience */
+
+.auth-page.style2 {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.18), transparent 18%),
+                radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.14), transparent 22%),
+                linear-gradient(135deg, #eef2ff 0%, #f8fafc 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-page.style2::before,
+.auth-page.style2::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.auth-page.style2::before {
+    width: 360px;
+    height: 360px;
+    top: -140px;
+    left: -120px;
+    background: rgba(99, 102, 241, 0.22);
+}
+
+.auth-page.style2::after {
+    width: 420px;
+    height: 420px;
+    bottom: -160px;
+    right: -120px;
+    background: rgba(236, 72, 153, 0.18);
+}
+
+.auth-card.style2 {
+    position: relative;
+    width: min(100%, 520px);
+    padding: 2.75rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 40px 120px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.auth-card.style2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+    pointer-events: none;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    background: #f3f4ff;
+    padding: 0.5rem;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.auth-tab {
+    border: none;
+    background: transparent;
+    padding: 1rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 700;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.auth-tab.active {
+    color: #111827;
+}
+
+.auth-tab.active::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: linear-gradient(135deg, #6366f1, #fb3799);
+    border-radius: 999px;
+    z-index: -1;
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.18);
+}
+
+.auth-panel {
+    animation: fadeInRight 0.9s ease-out;
+}
+
+.auth-panel h2 {
+    font-size: 2.15rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.03em;
+}
+
+.auth-panel p {
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+    line-height: 1.8;
+}
+
+.auth-form {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.auth-form label {
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 600;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 1rem 1.1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+    font-size: 1rem;
+    color: #111827;
+}
+
+.auth-form input:focus {
+    border-color: rgba(99, 102, 241, 0.8);
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.08);
+    transform: translateY(-1px);
+}
+
+.auth-form input::-webkit-input-placeholder {
+    color: rgba(71, 85, 105, 0.7);
+}
+
+.auth-form input:-ms-input-placeholder,
+.auth-form input::-ms-input-placeholder {
+    color: rgba(71, 85, 105, 0.7);
+}
+
+.auth-form input::placeholder {
+    color: rgba(71, 85, 105, 0.7);
+}
+
+.auth-form button {
+    padding: 1rem 1.2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    box-shadow: 0 20px 35px rgba(99, 102, 241, 0.16);
+}
+
+.auth-form button.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border: none;
+    color: #ffffff;
+}
+
+.auth-form button.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.auth-card.style2 .auth-tabs button {
+    min-height: 58px;
+}
+
+.auth-card.style2 .auth-tab:not(.active):hover {
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.login-hero-note {
+    margin-top: 1rem;
+    color: #475569;
+    font-size: 0.95rem;
+    text-align: center;
+    opacity: 0.95;
+}
+
+.auth-card.style2 .auth-footer {
+    margin-top: 1.75rem;
+    text-align: center;
+    color: #516d95;
+    font-size: 0.95rem;
+}
+
+.auth-card.style2 .auth-footer a {
+    color: #6366f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-card.style2 .auth-footer a:hover {
+    color: #4f46e5;
+}
